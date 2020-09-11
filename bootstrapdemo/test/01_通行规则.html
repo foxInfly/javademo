@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bootstrap HelloWorld</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--<link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">-->
+    <!--<link href="../css/bootstrap-datepicker.css" rel="stylesheet">-->
+    <!--<link href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="http://www.bootcss.com/p/bootstrap-datetimepicker/bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet">
+    <!--<script src="../dist/js/bootstrap-datepicker.js"></script>-->
+    <script src="../js/bootstrap-datetimepicker.js"></script>
+    <script src="../js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+
+    <style>
+        #main-nav {
+            /*margin-left: 1px;*/
+        }
+
+
+        #main-nav.nav-tabs.nav-stacked > li > a {
+            /*padding: 10px 8px;*/
+            /*font-size: 12px;*/
+            /*font-weight: 600;*/
+            /*font-size: 15px;*/
+            /*color: black;*/
+            /*font-weight: normal;*/
+            /*background: #CEECF5;*/
+            /*margin-bottom: 0px;*/
+            /*margin-top: 0px;*/
+            /*background: -moz-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%);*/
+            /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FAFAFA), color-stop(100%, #E9E9E9));*/
+            /*background: -webkit-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%);*/
+            /*background: -o-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%);*/
+            /*background: -ms-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%);*/
+            /*background: linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%);*/
+            /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9');*/
+            /*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9')";*/
+            /*border: 1px solid #D5D5D5;*/
+            border-radius: 0px;
+        }
+        .through{
+            font-size: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #2E64FE;
+            font-weight: normal;
+            background: #CEF6F5;
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+        .other{
+            color: black;
+        }
+
+        /*#main-nav.nav-tabs.nav-stacked > li > a > span {*/
+            /*!*color: #4A515B;*!*/
+        /*}*/
+
+        /*#main-nav.nav-tabs.nav-stacked > li.active > a, #main-nav.nav-tabs.nav-stacked > li > a:hover {*/
+            /*!*color: #FFF;*!*/
+            /*!*background: #3C4049;*!*/
+            /*!*background: -moz-linear-gradient(top, #4A515B 0%, #3C4049 100%);*!*/
+            /*!*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4A515B), color-stop(100%, #3C4049));*!*/
+            /*!*background: -webkit-linear-gradient(top, #4A515B 0%, #3C4049 100%);*!*/
+            /*!*background: -o-linear-gradient(top, #4A515B 0%, #3C4049 100%);*!*/
+            /*!*background: -ms-linear-gradient(top, #4A515B 0%, #3C4049 100%);*!*/
+            /*!*background: linear-gradient(top, #4A515B 0%, #3C4049 100%);*!*/
+            /*!*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4A515B', endColorstr='#3C4049');*!*/
+            /*!*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#4A515B', endColorstr='#3C4049')";*!*/
+            /*!*border-color: #2B2E33;*!*/
+        /*}*/
+
+        /*#main-nav.nav-tabs.nav-stacked > li.active > a, #main-nav.nav-tabs.nav-stacked > li > a:hover > span {*/
+            /*!*color: #FFF;*!*/
+        /*}*/
+
+        /*#main-nav.nav-tabs.nav-stacked > li {*/
+            /*!*margin-bottom: 4px;*!*/
+        /*}*/
+
+        /*定义二级菜单样式*/
+        .secondmenu a {
+            font-size: 10px;
+            color: #4A515B;
+            text-align: center;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+       $(
+           function () {
+               $('#date').datetimepicker({
+                   forceParse: 0,//设置为0，时间不会跳转1899，会显示当前时间。
+                   language: 'zh-CN',//显示中文
+                   format: 'yyyymmdd hh:mm',//显示格式yyyymmdd hh:mm
+                   minView: "day",//设置只显示到月份
+                   initialDate: new Date(),//初始化当前日期
+                   autoclose: true,//选中自动关闭
+                   todayBtn: true//显示今日按钮
+               });
+               $('.time').datetimepicker({
+                   format:'hh:ii',
+                   startView:'day',
+                   maxView:'day',
+                   minView:'hour',
+                   minuteStep:1,
+                   autoclose:true,
+                   pickerPosition: "bottom-left",
+                   language:'zh-CN'
+               });
+               //禁用<a>标签
+               $(".through").attr("disabled",true).css("pointer-events","none");
+           }
+       );
+
+    </script>
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
+                <li>
+                    <a  class="through" disabled="disabled">
+                        <!--<i class="glyphicon glyphicon-credit-card"></i>-->
+                        通行规则
+                    </a>
+
+                </li>
+                <li>
+                    <a href="./grid.html" class="other">
+                        <!--<i class="glyphicon glyphicon-globe"></i>-->
+                        小程序配置
+                    </a>
+                </li>
+                <li>
+                    <a href="./charts.html" class="other">
+                        <!--<i class="glyphicon glyphicon-calendar"></i>-->
+                        学制配置
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="other">
+                        <!--<i class="glyphicon glyphicon-fire"></i>-->
+                        文件上传配置
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-10">
+            <div style="font-size: 25px" class="col-md-12"><strong>通行规则</strong></div>
+            <br><br><br><br>
+            <p style="font-size: 15px" class="col-md-12"><strong>春季（3-5月）</strong></p>
+            <div class="col-md-12" id="spring">
+                <p class="timePeriod" >时间段1:</p>
+                <input class="form-control time xx1" type="text"  id="spring1-1" name="datetimepicker" placeholder="起始时间">
+                <span class="xx1">--</span>
+                <input class="form-control time xx1" type="text"  id="spring1-2" name="datetimepicker" placeholder="结束时间">
+            </div>
+            <div class="col-md-12">
+                <p class="timePeriod" >时间段2:</p>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="起始时间">
+                <span class="xx1">--</span>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="结束时间">
+            </div>
+
+            <p style="font-size: 15px" class="col-md-12"><strong>夏季（6-8月）</strong></p>
+            <div class="col-md-12">
+                <p class="timePeriod" >时间段1:</p>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="起始时间">
+                <span class="xx1">--</span>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="结束时间">
+            </div>
+            <div class="col-md-12">
+                <p class="timePeriod" >时间段2:</p>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="起始时间">
+                <span class="xx1">--</span>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="结束时间">
+            </div>
+
+            <p style="font-size: 15px" class="col-md-12"><strong>秋季（9-11月）</strong></p>
+            <div class="col-md-12">
+                <p class="timePeriod" >时间段1:</p>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="起始时间">
+                <span class="xx1">--</span>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="结束时间">
+            </div>
+            <div class="col-md-12">
+                <p class="timePeriod" >时间段2:</p>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="起始时间">
+                <span class="xx1">--</span>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="结束时间">
+            </div>
+
+            <p style="font-size: 15px" class="col-md-12"><strong>冬季（12-2月）</strong></p>
+            <div class="col-md-12">
+                <p class="timePeriod" >时间段1:</p>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="起始时间">
+                <span class="xx1">--</span>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="结束时间">
+            </div>
+            <div class="col-md-12">
+                <p class="timePeriod" >时间段2:</p>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="起始时间">
+                <span class="xx1">--</span>
+                <input class="form-control time xx1" type="text"  name="datetimepicker" placeholder="结束时间">
+            </div><br>
+            <div class="col-md-12" style="height: 15px"></div>
+            <div class="col-md-12">
+                <button type="button" class="btn btn-primary " id="btn-update" style="background-color: #2E64FE;width: 90px">更新信息</button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <script>
+        $("#btn-update").on("click",function () {
+
+            var date = $("#spring1-1").data("datetimepicker").getDate();
+
+            formatted = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+            console.log("formatted:"+formatted);
+            let date1 = new Date("2020-9-11 15:8:40");
+            console.log("date1:"+date1);
+            $("#spring1-2").data('datetimepicker').setDate(date1);
+
+        });
+    </script>
+
+    <style>
+        .timePeriod{
+            font-size: 15px;
+            float: left;
+            margin-left: 20px;
+            margin-right: 5px;
+
+        }
+        .time{
+            width: 75px;
+            height: 25px;
+            float: left;
+        }
+        input::-webkit-input-placeholder {
+            /* placeholder颜色 */
+            color: #aab2bd;
+            /* placeholder字体大小 */
+            font-size: 10px;
+        }
+        .xx1{
+            float: left;
+        }
+        .through{
+
+        }
+    </style>
+</div>
+</body>
+</html>

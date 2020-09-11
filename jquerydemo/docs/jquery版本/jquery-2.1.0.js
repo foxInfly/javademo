@@ -6944,7 +6944,7 @@ jQuery.extend({
 					var val = elem.value;
 					elem.setAttribute( "type", value );
 					if ( val ) {
-						elem.value = val;
+                        valelem.value = val;
 					}
 					return value;
 				}

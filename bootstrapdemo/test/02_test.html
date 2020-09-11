@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://www.bootcss.com/p/bootstrap-datetimepicker/bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet">
+
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-datetimepicker.js"></script>
+    <script src="../js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    
+    <script>
+        $(function () {
+            $(".form_datetime").datetimepicker({
+                format:'hh:ii',
+                startView:'day',
+                maxView:'day',
+                minView:'hour',
+                minuteStep:1,
+                autoclose:true,
+                pickerPosition: "bottom-left",
+                language:'zh-CN'
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="input-append date form_datetime">
+    <input size="20" type="text" value="" readonly>
+    <span class="add-on"><i class="icon-remove"></i></span>
+    <span class="add-on"><i class="icon-calendar"></i></span>
+</div>
+
+</body>
+
+</html>
